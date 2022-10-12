@@ -1,7 +1,9 @@
+// VARIABLES
 const containerDiv = document.querySelector(".container");
 const btnPixel = document.querySelector(".btn-pixel");
 const createDiv = document.createElement("div");
 
+// START
 let pixelNum = 20;
 for (let i = 0; i < pixelNum ** 2; i++) {
   const newDiv = containerDiv.appendChild(createDiv.cloneNode(true));
@@ -14,6 +16,7 @@ document.querySelectorAll(".box").forEach((item) => {
   });
 });
 
+// CHANGE NUMBER OF SQUARES WITH BUTTON
 btnPixel.addEventListener("click", function () {
   const userChoice = prompt("Number of squares per side:", 20);
   if (userChoice > 100) {

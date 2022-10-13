@@ -34,7 +34,7 @@ btnPixel.addEventListener("click", function () {
     }
 
     document.querySelectorAll(".box").forEach((item) => {
-      item.style.backgroundColor = "rgb(240, 240, 240)";
+      item.style.backgroundColor = "rgb(211, 211, 211)";
       item.addEventListener("mouseover", function () {
         item.style.backgroundColor = "rgb(50, 50, 50)";
       });

@@ -2,6 +2,7 @@
 const containerDiv = document.querySelector(".container-grid");
 const btnPixel = document.querySelector(".btn-pixel");
 const btnRainbow = document.querySelector(".btn-rainbow");
+const btnClear = document.querySelector(".btn-clear");
 const createDiv = document.createElement("div");
 
 // START
@@ -27,6 +28,10 @@ function setRainbow(i) {
   i.style.backgroundColor = `rgb(${randomNum1}, ${randomNum2}, ${randomNum3})`;
 }
 
+function clearContainer(box) {
+  box.style.backgroundColor = "rgb(211, 211, 211)";
+}
+
 // CHANGE NUMBER OF SQUARES WITH BUTTON
 btnPixel.addEventListener("click", function () {
   const userChoice = prompt("Number of squares per side:", 20);
@@ -45,7 +50,7 @@ btnPixel.addEventListener("click", function () {
     }
 
     document.querySelectorAll(".box").forEach((item) => {
-      item.style.backgroundColor = "rgb(211, 211, 211)";
+      clearContainer(item);
       item.addEventListener("mouseover", () => setRgb50(item));
     });
   }
@@ -54,7 +59,11 @@ btnPixel.addEventListener("click", function () {
 // CHANGE COLORING TO RAINBOW WITH BUTTON
 btnRainbow.addEventListener("click", function () {
   document.querySelectorAll(".box").forEach((item) => {
-    item.style.backgroundColor = "rgb(211, 211, 211)";
     item.addEventListener("mouseover", () => setRainbow(item));
   });
+});
+
+// CLEAR BUTTON
+btnClear.addEventListener("click", function () {
+  document.querySelectorAll(".box").forEach((item) => clearContainer(item));
 });

@@ -9,6 +9,8 @@ const createDiv = document.createElement("div");
 
 // START
 let pixelNum = 5;
+const initialColor = "rgb(50, 50, 50)";
+const initialBackgroundColor = "rgb(211, 211, 211)";
 start();
 
 //  FUNCTIONS
@@ -26,7 +28,7 @@ function start() {
 }
 
 function setRgb50(box) {
-  box.style.backgroundColor = "rgb(50, 50, 50)";
+  box.style.backgroundColor = initialColor;
 }
 
 function setRainbow(box) {
@@ -37,17 +39,18 @@ function setRainbow(box) {
 }
 
 function clearContainer(box) {
-  box.style.backgroundColor = "rgb(211, 211, 211)";
+  box.style.backgroundColor = initialBackgroundColor;
 }
 
 function erase(box) {
-  box.style.backgroundColor = "rgb(211, 211, 211)";
+  box.style.backgroundColor = initialBackgroundColor;
 }
 
 // CHANGE NUMBER OF SQUARES WITH INPUT RANGE
 rangePixel.addEventListener("change", function (e) {
   pixelNum = parseInt(e.target.value);
   start();
+  colorPicker.value = initialColor;
 });
 
 // COLOR PICKER

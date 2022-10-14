@@ -6,8 +6,8 @@ const btnClear = document.querySelector(".btn-clear");
 const createDiv = document.createElement("div");
 
 // START
-let pixelNum = 20;
-for (let i = 0; i < pixelNum ** 2; i++) {
+let pixelNum = 5;
+for (let i = 0; i < pixelNum * 4 * (pixelNum * 3); i++) {
   const newDiv = containerDiv.appendChild(createDiv.cloneNode(true));
   newDiv.classList.add("box");
 }
@@ -41,10 +41,10 @@ btnPixel.addEventListener("click", function () {
     alert("Please choose a larger number");
   } else {
     pixelNum = userChoice;
-    containerDiv.style.gridTemplateRows = `repeat(${pixelNum}, 1fr)`;
-    containerDiv.style.gridTemplateColumns = `repeat(${pixelNum}, 1fr)`;
+    containerDiv.style.gridTemplateRows = `repeat(${pixelNum * 3}, 1fr)`;
+    containerDiv.style.gridTemplateColumns = `repeat(${pixelNum * 4}, 1fr)`;
 
-    for (let i = 0; i < pixelNum ** 2; i++) {
+    for (let i = 0; i < pixelNum * 4 * (pixelNum * 3); i++) {
       newDiv = containerDiv.appendChild(createDiv.cloneNode(true));
       newDiv.classList.add("box");
     }

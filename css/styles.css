@@ -121,3 +121,8 @@ body {
   border: 4px solid gold;
   cursor: pointer;
 }
+
+.btn-on {
+  border: 4px solid gold;
+  font-weight: bold;
+}

@@ -3,6 +3,7 @@ const containerDiv = document.querySelector(".container-grid");
 const rangePixel = document.getElementById("pixel-size");
 const btnRainbow = document.querySelector(".btn-rainbow");
 const btnClear = document.querySelector(".btn-clear");
+const btnErase = document.querySelector(".btn-erase");
 const createDiv = document.createElement("div");
 
 // START
@@ -38,6 +39,10 @@ function clearContainer(box) {
   box.style.backgroundColor = "rgb(211, 211, 211)";
 }
 
+function erase(box) {
+  box.style.backgroundColor = "rgb(211, 211, 211)";
+}
+
 // CHANGE NUMBER OF SQUARES WITH INPUT RANGE
 rangePixel.addEventListener("input", function (e) {
   pixelNum = parseInt(e.target.value);
@@ -54,4 +59,11 @@ btnRainbow.addEventListener("click", function () {
 // CLEAR BUTTON
 btnClear.addEventListener("click", function () {
   document.querySelectorAll(".box").forEach((item) => clearContainer(item));
+});
+
+// ERASER BUTTON
+btnErase.addEventListener("click", function () {
+  document.querySelectorAll(".box").forEach((item) => {
+    item.addEventListener("mouseover", () => erase(item));
+  });
 });

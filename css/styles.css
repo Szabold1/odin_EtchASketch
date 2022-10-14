@@ -32,8 +32,6 @@ body {
   background-color: rgb(211, 211, 211);
   /* GRID */
   display: grid;
-  grid-template-rows: repeat(15, 1fr);
-  grid-template-columns: repeat(20, 1fr);
 }
 
 .title {

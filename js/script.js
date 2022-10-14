@@ -11,6 +11,7 @@ const createDiv = document.createElement("div");
 let pixelNum = 5;
 const initialColor = "#323232";
 const initialBackgroundColor = "rgb(211, 211, 211)";
+let flagRainbow = false;
 start();
 
 //  FUNCTIONS
@@ -35,7 +36,9 @@ function setRainbow(box) {
   let randomNum1 = Math.floor(Math.random() * 256);
   let randomNum2 = Math.floor(Math.random() * 256);
   let randomNum3 = Math.floor(Math.random() * 256);
-  box.style.backgroundColor = `rgb(${randomNum1}, ${randomNum2}, ${randomNum3})`;
+  box.style.backgroundColor = flagRainbow
+    ? `rgb(${randomNum1}, ${randomNum2}, ${randomNum3})`
+    : colorPicker.value;
 }
 
 function clearContainer(box) {
@@ -57,6 +60,8 @@ rangePixel.addEventListener("change", function (e) {
 
 // COLOR PICKER
 colorPicker.addEventListener("change", function (e) {
+  if (flagRainbow) flagRainbow = false;
+  btnRainbow.classList.remove("btn-on");
   document.querySelectorAll(".box").forEach((item) => {
     item.addEventListener("mouseover", () => {
       item.style.backgroundColor = `${e.target.value}`;
@@ -66,6 +71,10 @@ colorPicker.addEventListener("change", function (e) {
 
 // CHANGE COLORING TO RAINBOW WITH BUTTON
 btnRainbow.addEventListener("click", function () {
+  flagRainbow = !flagRainbow;
+  flagRainbow
+    ? btnRainbow.classList.add("btn-on")
+    : btnRainbow.classList.remove("btn-on");
   document.querySelectorAll(".box").forEach((item) => {
     item.addEventListener("mouseover", () => setRainbow(item));
   });

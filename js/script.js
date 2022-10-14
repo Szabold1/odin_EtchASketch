@@ -9,7 +9,7 @@ const createDiv = document.createElement("div");
 
 // START
 let pixelNum = 5;
-const initialColor = "rgb(50, 50, 50)";
+const initialColor = "#323232";
 const initialBackgroundColor = "rgb(211, 211, 211)";
 start();
 
@@ -48,6 +48,8 @@ function erase(box) {
 
 // CHANGE NUMBER OF SQUARES WITH INPUT RANGE
 rangePixel.addEventListener("change", function (e) {
+  if (flagRainbow) flagRainbow = false;
+  btnRainbow.classList.remove("btn-on");
   pixelNum = parseInt(e.target.value);
   start();
   colorPicker.value = initialColor;

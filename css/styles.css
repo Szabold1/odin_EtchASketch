@@ -23,27 +23,8 @@ body {
   align-items: center;
 }
 
-.container-grid {
-  box-sizing: content-box;
-  width: 800px;
-  height: 600px;
-  border: 1px solid black;
-  border-radius: 2px;
-  background-color: rgb(211, 211, 211);
-  /* GRID */
-  display: grid;
-}
-
-.title {
-  margin: 20px;
-  font-size: 50px;
-  color: gold;
-  font-family: "Cabin Sketch", cursive;
-  font-weight: bold;
-}
-
 .container-body {
-  margin: 0 40px 20px 40px;
+  margin: 0 70px 20px 70px;
   /* FLEXBOX */
   display: flex;
   flex-direction: column;
@@ -52,14 +33,50 @@ body {
   gap: 20px;
 }
 
-/* BUTTONS */
+/* GRID */
+.container-grid {
+  box-sizing: content-box;
+  width: 720px;
+  height: 540px;
+  border: 1px solid rgb(50, 50, 50);
+  border-radius: 2px;
+  background-color: rgb(211, 211, 211);
+  /* GRID */
+  display: grid;
+}
 
+/* HEADER (OVER GRID) */
+.title {
+  margin: 20px;
+  font-size: 50px;
+  color: gold;
+  font-family: "Cabin Sketch", cursive;
+  font-weight: bold;
+}
+
+/* FOOTER (UNDER GRID) */
 .container-buttons {
   width: 100%;
   /* FLEXBOX */
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px;
+}
+
+.input-range {
+  /* FLEXBOX */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.input-range .label {
+  font-family: "Cabin Sketch", cursive;
+  color: gold;
+  font-weight: normal;
+  font-size: 18px;
 }
 
 .btn {
@@ -68,12 +85,11 @@ body {
   background-color: rgb(211, 211, 211);
   color: rgb(50, 50, 50);
   border-radius: 10px;
-  border: 1px solid rgb(211, 211, 211);
-  padding: 10px 20px;
+  border: 4px solid rgb(211, 211, 211);
+  padding: 8px 16px;
 }
 
 .btn:hover {
-  background-color: rgb(50, 50, 50);
-  color: rgb(211, 211, 211);
+  border: 4px solid gold;
   cursor: pointer;
 }

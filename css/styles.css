@@ -57,26 +57,54 @@ body {
 /* FOOTER (UNDER GRID) */
 .container-buttons {
   width: 100%;
+  height: 50px;
   /* FLEXBOX */
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
 }
 
-.input-range {
+.left {
+  height: 50px;
+  margin-left: 10px;
+  /* FLEXBOX */
+  display: flex;
+  gap: 40px;
+}
+
+.input-container {
+  height: 100%;
   /* FLEXBOX */
   display: flex;
   flex-direction: column;
   gap: 8px;
   align-items: center;
+  justify-content: center;
 }
 
-.input-range .label {
+.input-container .label {
   font-family: "Cabin Sketch", cursive;
   color: gold;
   font-weight: normal;
   font-size: 18px;
+}
+
+.pixel-size {
+  height: 25px;
+  width: 130px;
+}
+
+.color-picker {
+  height: 25px;
+  width: 50px;
+}
+
+.right {
+  margin-right: 10px;
+  /* FLEXBOX */
+  display: flex;
+  gap: 20px;
 }
 
 .btn {

@@ -22,26 +22,34 @@
       <div class="container-body">
         <div class="container-grid"></div>
         <div class="container-buttons">
-          <div class="input-range">
-            <label for="pixel-size" class="label">Number of pixels</label>
-            <input
-              type="range"
-              id="pixel-size"
-              class="pixel-size"
-              min="1"
-              max="25"
-              value="5"
-            />
+          <div class="left">
+            <div class="input-container input-range">
+              <input
+                type="range"
+                id="pixel-size"
+                class="pixel-size"
+                min="1"
+                max="25"
+                value="5"
+              />
+              <label for="pixel-size" class="label">Number of pixels</label>
+            </div>
+            <div class="input-container input-color">
+              <input
+                type="color"
+                id="color-picker"
+                class="color-picker"
+                value="#323232"
+              />
+              <label for="color-picker" class="label">Color</label>
+            </div>
           </div>
-          <input
-            type="color"
-            id="color-picker"
-            class="color-picker"
-            value="#323232"
-          />
-          <button class="btn btn-rainbow" type="button">Rainbow</button>
-          <button class="btn btn-erase">Eraser</button>
-          <button class="btn btn-clear" type="button">Clear</button>
+
+          <div class="right">
+            <button class="btn btn-rainbow" type="button">Rainbow</button>
+            <button class="btn btn-erase">Eraser</button>
+            <button class="btn btn-clear" type="button">Clear</button>
+          </div>
         </div>
       </div>
     </div>

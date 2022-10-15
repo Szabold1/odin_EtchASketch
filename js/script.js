@@ -12,6 +12,7 @@ let pixelNum = 5;
 const initialColor = "#323232";
 const initialBackgroundColor = "rgb(211, 211, 211)";
 let flagRainbow = false;
+let flagErase = false;
 start();
 
 //  FUNCTIONS
@@ -49,10 +50,21 @@ function erase(box) {
   box.style.backgroundColor = initialBackgroundColor;
 }
 
+function turnOffRainbowButton() {
+  btnRainbow.classList.remove("btn-on");
+  flagRainbow = false;
+}
+
+function turnOffEraseButton() {
+  btnErase.classList.remove("btn-on");
+  flagErase = false;
+}
+
 // CHANGE NUMBER OF SQUARES WITH INPUT RANGE
 rangePixel.addEventListener("change", function (e) {
-  if (flagRainbow) flagRainbow = false;
-  btnRainbow.classList.remove("btn-on");
+  if (flagRainbow) turnOffRainbowButton();
+  if (flagErase) turnOffEraseButton();
+
   pixelNum = parseInt(e.target.value);
   start();
   colorPicker.value = initialColor;
@@ -60,10 +72,12 @@ rangePixel.addEventListener("change", function (e) {
 
 // COLOR PICKER
 colorPicker.addEventListener("change", function (e) {
-  if (flagRainbow) flagRainbow = false;
-  btnRainbow.classList.remove("btn-on");
+  if (flagRainbow) turnOffRainbowButton();
+  if (flagErase) turnOffEraseButton();
+
   document.querySelectorAll(".box").forEach((item) => {
     item.addEventListener("mouseover", () => {
+      // colorPicker.value = e.target.value;
       item.style.backgroundColor = `${e.target.value}`;
     });
   });
@@ -72,9 +86,12 @@ colorPicker.addEventListener("change", function (e) {
 // CHANGE COLORING TO RAINBOW WITH BUTTON
 btnRainbow.addEventListener("click", function () {
   flagRainbow = !flagRainbow;
-  flagRainbow
-    ? btnRainbow.classList.add("btn-on")
-    : btnRainbow.classList.remove("btn-on");
+  if (flagRainbow) {
+    btnRainbow.classList.add("btn-on");
+    if (flagErase) turnOffEraseButton();
+  } else if (flagRainbow === false) {
+    btnRainbow.classList.remove("btn-on");
+  }
   document.querySelectorAll(".box").forEach((item) => {
     item.addEventListener("mouseover", () => setRainbow(item));
   });
@@ -87,7 +104,20 @@ btnClear.addEventListener("click", function () {
 
 // ERASER BUTTON
 btnErase.addEventListener("click", function () {
+  flagErase = !flagErase;
+  if (flagErase) {
+    btnErase.classList.add("btn-on");
+    if (flagRainbow) turnOffRainbowButton();
+  } else if (flagErase === false) {
+    btnErase.classList.remove("btn-on");
+  }
   document.querySelectorAll(".box").forEach((item) => {
-    item.addEventListener("mouseover", () => erase(item));
+    if (flagErase) {
+      item.addEventListener("mouseover", () => erase(item));
+    } else if (flagErase === false) {
+      item.addEventListener("mouseover", () => {
+        item.style.backgroundColor = colorPicker.value;
+      });
+    }
   });
 });
